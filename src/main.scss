@@ -1,0 +1,274 @@
+
+body{
+    margin: 0%;
+    font-family: 'Inter', sans-serif;    
+    background-color: #cdd2e6;
+
+}
+
+.wrapper{
+    background: #FFFFFF;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+    border-radius: 20px;
+    max-width: 1080px;
+    max-height: 1526px;
+    margin: 50px auto;
+}
+
+header{
+    border-bottom: 1px solid #d1d1d1;
+
+        h3, p{
+            margin: 0;
+        }
+
+        img{
+            margin-right: 15px;
+        }
+
+    
+}
+
+.content{
+    h1{
+        margin: 0;
+    }
+}
+
+
+.card{
+
+    padding: 20px;
+    width: 220px;
+    background: #FFFFFF;
+    border: 1px solid #d8d7d7;
+    border-radius: 40px;
+    transition: box-shadow 0.2s ease-in-out, transform 0.2s ease-in-out ;
+
+    &:hover{
+        box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.114);
+        transform: translateY(-5px)
+        
+    }
+
+    h5{
+        font-size: 14px;
+        font-weight: 400;
+    }
+
+    span{
+        color: #bdbcbc;
+        
+    }
+
+    .favourite{
+        position: absolute;
+        cursor: pointer;
+    }
+
+}   
+
+.button{
+    display: flex;
+    background: #ffffff;
+    border: 1px solid #b3b2b2;
+    box-sizing: border-box;
+    border-radius: 8px;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+ul{
+    span{
+        color: #303030;
+    }
+
+    .dots{
+        color: #afaeae;
+    }
+}
+
+
+div{
+    input{
+
+        width: 200px;
+        height: 45px;
+        font-family: 'Inter', sans-serif;    
+        border: 0px solid #F3F3F3;
+        border-radius: 20px;
+
+
+    }
+    .search-block{
+        border: 1px solid rgb(212, 212, 212);
+        border-radius: 10px;
+    }
+}
+
+.shadow-rightside-modal{
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-height: 100%;
+    height: 1288px;
+    width: 100%;
+    background-color: rgba($color: #2b2b2b, $alpha: 0.2);
+    z-index: 1;
+    
+
+    .rightside-modal{
+        position: absolute;
+        width: 390px;
+        height: 100%;
+        right: 0px;
+        top: 0px;
+        padding: 30px;
+        
+
+        background: #FFFFFF;
+        box-shadow: -10px 4px 24px rgba(0, 0, 0, 0.1);
+        z-index: 100;
+
+    }
+
+}
+
+.cartItem{
+    border: 1px solid rgb(232, 232, 232);
+    border-radius: 20px;
+    height: 120px;
+    width: 325px;
+    align-items: center;
+    display: flex;
+    padding: 0 10px;
+
+    .cartItemImg{
+        width: 70px;
+        height: 70px;
+        background-size: contain;
+        background-position: 0 10px;
+        background-repeat: no-repeat;
+    }
+
+    p{
+        font-size: 14px;
+    }
+
+    .removeImg{
+        opacity: 0.5;
+        display: flex;
+        bottom: 0;
+        transition: opacity 0.25s ease-in-out;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+
+    button{
+        bottom: 0;
+        display: flex;
+
+
+    }
+}
+
+.bottomSide{
+    width: 100%;
+    background-color: white;
+    overflow: hidden;
+    position: absolute;
+    padding-bottom: 250px;
+    margin-top: 50px;
+}
+
+.bottomSideText{
+    margin-bottom: 10px;
+}
+
+.buttonbuy{
+
+
+    cursor: pointer;
+    height: 55px;
+    background: #9DD558;
+    border-radius: 18px;
+    width: 85%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    border: 1px solid #9DD558;
+    text-align: center;
+
+    color: #FFFFFF;
+
+
+}
+
+.itemsField{
+    flex-wrap: wrap;
+}
+
+.boldText{
+
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    margin-top: 15px;
+
+color: #000000;
+
+
+}
+
+.clearCardText{
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+
+    color: #000000;
+
+    opacity: 0.4;
+
+}
+
+.clearCardBtn{
+background: #9DD458;
+border-radius: 18px;
+border: 1px solid #9DD458;
+font-family: 'Inter';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 19px;
+text-align: center;
+width: 245px;
+height: 55px;
+cursor: pointer;
+
+color: #FFFFFF;
+
+
+}
+
+.clearCard{
+    text-align: center;
+    margin-top: 75%;
+}
+
