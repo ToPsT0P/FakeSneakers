@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
-const Navbar = ({setModal, price, setActivePage}) => {
+const Navbar = ({setModal, price, setActivePage, setLogModal}) => {
 
+  const inAcc = false
+  
     return(
         <header className="d-flex justify-between align-center p-40">
           <div className="d-flex align-center">
@@ -13,18 +15,26 @@ const Navbar = ({setModal, price, setActivePage}) => {
             </div>
           </div>
             <ul className="d-flex">
-              <li className="mr-30" style={{cursor: "pointer"}} onClick={e => {setModal(true)}}>
-                <img width={18} height={18} src="/img/cart.svg"/>
+              <li className="infLI mr-30" onClick={e => {setModal(true)}}>
+                <img style={{marginTop:"3px"}} width={18} height={18} src="/img/cart.svg"/>
                 <span >{price} руб.</span>
               </li>
-              <li className="mr-30" style={{cursor: "pointer"}} onClick={e => setActivePage("LikesPage")}>
-                <img width={18} height={18} src="/img/heart.svg" />
+              <li className="infLI mr-30" onClick={e => setActivePage("LikesPage")}>
+                <img style={{marginTop:"3px"}} width={18} height={18} src="/img/heart.svg" />
                 <span>Закладки</span>
               </li>
-              <li className="mr-30" style={{cursor: "pointer"}} onClick={e => setActivePage("Profile")}> 
+              {inAcc == true
+              ? <li className="mr-30 infLI" onClick={e => setActivePage("Profile")}> 
+                <img style={{marginTop:"3px"}} width={18} height={18} src="/img/user.svg" />
+                <span>Профиль</span> 
+                </li>
+                : <li 
+                className="mr-30 infLI"  
+                onClick={() => {setLogModal(true)}}>
                 <img width={18} height={18} src="/img/user.svg" />
-                <span>Профиль</span>
-              </li>
+                <span>Регистрация</span></li>}
+              
+              
             </ul>
         </header>
     )

@@ -14,7 +14,7 @@ const ModalRightSide = ({setModalActive, shopArray, setShopArray, addingToBought
 
     return(
 
-        <div className="shadow-rightside-modal" onClick={e => setModalActive(false)}>
+        <div className="shadow-modal" onClick={e => setModalActive(false)}>
           <div className="rightside-modal" onClick={e => e.stopPropagation()}>
           
             <div className="items">
