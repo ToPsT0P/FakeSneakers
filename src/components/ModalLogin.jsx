@@ -40,7 +40,7 @@ const ModalLogin = ({setLogModal}) => {
             }
             {pageModal == "registrationPage" && 
             <>
-             <div className="central-modal-text">
+             <div className="central-modal-text" style={{bottom:"0px"}}>
               <h3>Ваша почта</h3>
               <input onChange={(e) => {setUserEmailReg(e.target.value)}} maxLength={15} placeholder="E-mail"/>
               <h3>Ваш логин</h3>
