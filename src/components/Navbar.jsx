@@ -1,9 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const Navbar = ({setModal, price, setActivePage, setLogModal}) => {
-
-  const inAcc = false
   
+  const [isInAcc, setIsInAcc] = useState()
+  const [accFlag, setAccFlag] = useState(false)
+
+  useEffect(() => {
+    if(localStorage.getItem("fakeToken")){
+      setIsInAcc(true)
+    }else{
+      setIsInAcc(false)
+    }
+
+  }, [accFlag, localStorage.getItem("fakeToken")])
+
+  const exitFunction = () => {
+    localStorage.removeItem("fakeToken")
+    setAccFlag(!accFlag)
+  }
+
     return(
         <header className="d-flex justify-between align-center p-40">
           <div className="d-flex align-center">
@@ -15,26 +30,21 @@ const Navbar = ({setModal, price, setActivePage, setLogModal}) => {
             </div>
           </div>
             <ul className="d-flex">
-              <li className="infLI mr-30" onClick={e => {setModal(true)}}>
-                <img style={{marginTop:"3px"}} width={18} height={18} src="/img/cart.svg"/>
+              <li className="mr-30" style={{cursor: "pointer"}} onClick={e => {setModal(true)}}>
+                <img width={18} height={18} src="/img/cart.svg"/>
                 <span >{price} руб.</span>
               </li>
-              <li className="infLI mr-30" onClick={e => setActivePage("LikesPage")}>
-                <img style={{marginTop:"3px"}} width={18} height={18} src="/img/heart.svg" />
+              <li className="mr-30" style={{cursor: "pointer"}} onClick={e => setActivePage("LikesPage")}>
+                <img width={18} height={18} src="/img/heart.svg" />
                 <span>Закладки</span>
               </li>
-              {inAcc == true
-              ? <li className="mr-30 infLI" onClick={e => setActivePage("Profile")}> 
-                <img style={{marginTop:"3px"}} width={18} height={18} src="/img/user.svg" />
-                <span>Профиль</span> 
-                </li>
-                : <li 
-                className="mr-30 infLI"  
-                onClick={() => {setLogModal(true)}}>
+              <li className="mr-30" style={{cursor: "pointer"}}> 
                 <img width={18} height={18} src="/img/user.svg" />
-                <span>Регистрация</span></li>}
-              
-              
+                {isInAcc == false && <span onClick={() => {setLogModal("Auth")}}>Регистрация</span>}
+                {isInAcc == true && 
+                <><span onClick={() => setActivePage("Profile")}>Профиль</span>
+                <button onClick={() => {exitFunction()}}>Выйти</button></>}
+              </li>
             </ul>
         </header>
     )

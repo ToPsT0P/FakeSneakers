@@ -9,6 +9,31 @@ const ModalLogin = ({setLogModal}) => {
   const [userPasswordReg, setUserPasswordReg] = useState("")
   const [secondUserPasswordReg, setSecondUserPasswordReg] = useState("")
   const [pageModal, setPageModal] = useState("loginPage")
+  const [dataCorrect, setDataCorrect] = useState()
+  const regexEmail = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+  
+
+  const registrationFunction = () => {
+    localStorage.setItem("fakeToken", JSON.stringify(userNameReg || userNameLog))
+    setLogModal(false)
+  }
+
+
+  const checkDataCorrect = () => {
+    if(regexEmail.test(userEmailReg) == true && userPasswordReg == secondUserPasswordReg 
+    && userPasswordReg && userNameReg){
+      return true
+    }else{
+      return false
+    }
+  }
+
+  const userRegistration = () => {
+    if(checkDataCorrect() == true){
+      registrationFunction()
+    }
+  }
+
 
     return(
         <>
@@ -35,24 +60,24 @@ const ModalLogin = ({setLogModal}) => {
               <button>Войти</button>
               </div>
             
-              <h3 className="linkToReg">Нет аккаунта? <a onClick={() => setPageModal("registrationPage")} style={{cursor:"pointer"}}> Создай!</a></h3>
+              <h3 className="linkToReg">Нет аккаунта? <a onClick={() => setPageModal("registrationPage")} style={{cursor:"pointer", color:"blue"}}> Создай!</a></h3>
             </>
             }
             {pageModal == "registrationPage" && 
             <>
              <div className="central-modal-text" style={{bottom:"0px"}}>
               <h3>Ваша почта</h3>
-              <input onChange={(e) => {setUserEmailReg(e.target.value)}} maxLength={15} placeholder="E-mail"/>
+              <input onChange={(e) => {setUserEmailReg(e.target.value)}} maxLength={30} placeholder="E-mail"/>
               <h3>Ваш логин</h3>
               <input onChange={(e) => {setUserNameReg(e.target.value)}} maxLength={15} placeholder="Логин"/>
               <h3>Пароль</h3> 
               <input onChange={(e) => {setUserPasswordReg(e.target.value)}} maxLength={16} placeholder="Пароль"/><br/>
               <h3>Повторите пароль</h3> 
               <input onChange={(e) => {setSecondUserPasswordReg(e.target.value)}} maxLength={16} placeholder="Повторите пароль"/><br/>
-              <button>Войти</button>
+              <button onClick={() => {userRegistration()}}>Зарегистрироваться</button>
               </div>
             
-              <h3 style={{marginTop:"20px"}} className="linkToReg">Есть аккаунт? <a onClick={() => setPageModal("loginPage")} style={{cursor:"pointer"}}> Войди!</a></h3>
+              <h3 style={{marginTop:"20px"}} className="linkToReg">Есть аккаунт? <a onClick={() => setPageModal("loginPage")} style={{cursor:"pointer", color:"blue"}}> Войди!</a></h3>
 
             </>}
 
